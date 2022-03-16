@@ -30,20 +30,29 @@ console.log(totalCells);
 for (let i = 0; i < totalCells; i++) {
 
     // creo la singola cella con f.ne
-    const cell = document.createElement('div');
-    cell.classList.add('cell');
-    grid.appendChild(cell);
-
-    // creo il numerino nella cella
-    cell.innerText = [i + 1];
+    const cell = createCell();
 
     // metto in ascolto di un evento
-
     cell.addEventListener('click', function () {
         cell.classList.toggle('bg-blue');
-    })
+    });
+
+    // creo il numerino nella cella (+1 così non parte da 0)
+    cell.innerText = [i + 1];
+
+    // aggiungo la cella nella griglia
+    grid.appendChild(cell);
+
 }
 
+
+
+// F.ne per creare la singola cella
+function createCell() {
+    const item = document.createElement('div');
+    item.classList.add('cell');
+    return item;
+}
 
 
 
